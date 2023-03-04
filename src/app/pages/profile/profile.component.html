@@ -1,0 +1,96 @@
+<div>
+  <div class="container-fluid">
+    <div class="row px-xl-5">
+      <div class="col-12">
+        <nav class="breadcrumb bg-light mb-30">
+          <a class="breadcrumb-item text-dark" href="/"> Home </a>
+          <span class="breadcrumb-item active">Profile</span>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+      <span class="pr-3">Profile</span>
+    </h2>
+    <div class="row px-xl-5">
+      <div class="col-lg-5 mb-5">
+        <div class="bg-light p-30 mb-30" [ngStyle]="{ maxHeight: '300px' }">
+          <p>
+            <strong>Full Name : </strong>
+            {{ currentUser.fullName }}
+          </p>
+          <p>
+            <strong>Email : </strong>
+            {{ currentUser.email }}
+          </p>
+          <p *ngIf="currentUser.country">
+            <strong>Country : </strong>
+            {{ currentUser.country }}
+          </p>
+          <p *ngIf="currentUser.age">
+            <strong>age : </strong>
+            {{ currentUser.age }}
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-7 mb-5">
+        <div
+          class="contact-form bg-light p-30"
+          [ngStyle]="{ minHeight: '300px' }"
+        >
+          <form name="sentMessage" id="contactForm" novalidate="novalidate">
+            <div class="control-group mb-2">
+              <input
+                [value]="currentUser.fullName"
+                [(ngModel)]="user.fullName"
+                type="text"
+                class="form-control"
+                name="fullName"
+                placeholder="Your full name"
+              />
+            </div>
+            <div class="control-group mb-2">
+              <input
+                disabled
+                type="email"
+                [value]="currentUser.email"
+                class="form-control"
+                name="email"
+                placeholder="Your email"
+              />
+            </div>
+            <div class="control-group mb-2">
+              <input
+                [value]="currentUser.country"
+                [(ngModel)]="user.country"
+                type="text"
+                class="form-control"
+                name="country"
+                placeholder="Your country"
+              />
+            </div>
+            <div class="control-group mb-2">
+              <input
+                [value]="currentUser.age"
+                [(ngModel)]="user.age"
+                type="number"
+                class="form-control"
+                name="age"
+                placeholder="Your age"
+              />
+            </div>
+            <div>
+              <button
+                (click)="updateProfile()"
+                class="btn btn-primary py-2 px-4"
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

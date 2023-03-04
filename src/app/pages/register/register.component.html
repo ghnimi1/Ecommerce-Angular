@@ -1,0 +1,84 @@
+<div>
+  <div class="container-fluid">
+    <div class="row px-xl-5">
+      <div class="col-12">
+        <nav class="breadcrumb bg-light mb-30">
+          <a class="breadcrumb-item text-dark" href="#"> Home </a>
+          <span class="breadcrumb-item active">Register</span>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="text-center mb-4">
+      <h2 class="section-title px-5">
+        <span class="px-2">Register</span>
+      </h2>
+    </div>
+    <div class="row px-xl-5">
+      <div class="col-lg-7 mb-5">
+        <div class="contact-form bg-light p-30">
+          <form name="sentMessage" id="contactForm" novalidate="novalidate">
+            <div class="control-group">
+              <input
+                [(ngModel)]="user.fullName"
+                type="text"
+                class="form-control"
+                name="fullName"
+                placeholder="Your Full Name"
+                required="required"
+              />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <input
+                [(ngModel)]="user.email"
+                type="email"
+                class="form-control"
+                name="email"
+                placeholder="Your Email"
+                required="required"
+              />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <input
+                [(ngModel)]="user.password"
+                type="password"
+                class="form-control"
+                name="password"
+                placeholder="Your Password"
+                required="required"
+              />
+              <p *ngIf="error" class="alert alert-danger mt-2">
+                {{ error }}
+              </p>
+            </div>
+
+            <div>
+              <button
+                (click)="register()"
+                class="btn btn-primary py-2 px-4 my-2"
+              >
+                Register
+              </button>
+              <p class="text-right my-2">
+                Already have an account? <a routerLink="/login">Login</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-5 mb-5">
+        <div class="bg-light p-30 mb-30" [ngStyle]="{ minHeight: '300px' }">
+          <img
+            width="100%"
+            alt=""
+            src="https://img.freepik.com/photos-gratuite/key-lock-mot-passe-securite-protection-vie-privee-graphique_53876-125201.jpg?w=826&t=st=1674643621~exp=1674644221~hmac=a20b6f035fcc25ac63b637ddead254ab94771ab051066bd872202871d611c1e4"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<div>
+  <div class="container-fluid">
+    <div class="row px-xl-5">
+      <div class="col-12">
+        <nav class="breadcrumb bg-light mb-30">
+          <a class="breadcrumb-item text-dark" href="#"> Home </a>
+          <span class="breadcrumb-item active">Create Product</span>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+      <span class="pr-3">Create New Product</span>
+    </h2>
+    <div class="row px-xl-5">
+      <div class="col-lg-3 mb-3">
+        <div class="bg-light p-30 mb-30 d-flex justify-content-around">
+          <div class="pic-holder">
+            <img
+              id="profilePic"
+              class="pic"
+              src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+              alt=""
+            />
+            <input
+              (change)="select($event)"
+              class="uploadProfileInput"
+              type="file"
+              id="imgUrl"
+              name="imgUrl"
+              accept="image/*"
+              [ngStyle]="{ opacity: '0' }"
+            />
+            <label for="imgUrl" class="upload-file-block">
+              <div class="text-center">
+                <div class="mb-2">
+                  <i class="fa fa-camera fa-2x"></i>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 mb-7">
+        <div class="contact-form bg-light p-30">
+          <form name="sentMessage" id="contactForm" novalidate="novalidate">
+            <div class="control-group">
+              <input
+                [(ngModel)]="product.productName"
+                type="text"
+                name="productName"
+                class="form-control"
+                placeholder="Your Product Name"
+                required="required"
+              />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <input
+                [(ngModel)]="product.price"
+                type="number"
+                name="price"
+                class="form-control"
+                name="price"
+                placeholder="Your Price"
+                required="required"
+              />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <select
+                class="form-control"
+                name="category"
+                [(ngModel)]="product.category"
+                required="required"
+              >
+                <option>select category</option>
+                <option value="computer">computer</option>
+                <option value="phone">phone</option>
+                <option value="electronics">electronics</option>
+                <option value="accessoire">accessoire</option>
+                <option value="beauty">beauty</option>
+              </select>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <input
+                [(ngModel)]="product.shortDesc"
+                type="text"
+                class="form-control"
+                name="shortDesc"
+                placeholder="Your Short Description"
+                required="required"
+              />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <textarea
+                [(ngModel)]="product.description"
+                class="form-control"
+                rows="8"
+                name="description"
+                placeholder="Your Description"
+                required="required"
+              ></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div>
+              <button
+                (click)="createProduct()"
+                class="btn btn-primary py-2 px-4"
+                id="sendMessageButton"
+              >
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
